@@ -1,0 +1,26 @@
+@import "../../index";
+
+.user__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+    place-items: center;
+    margin: 160px auto ;
+}
+
+.user__card--img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    background: $bg-color-2;
+}
+
+.user__card--label {
+    font-weight:500;
+    padding-bottom: 4px;
+    border-bottom: 1px solid $bg-color-2;
+
+    & span {
+        font-weight: 300;
+    }
+}

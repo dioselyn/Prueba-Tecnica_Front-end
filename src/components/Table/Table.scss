@@ -1,0 +1,16 @@
+@import "../../index";
+
+.table__container {
+  margin-left: 230px;
+}
+
+.table__title {
+  display: grid;
+  grid-template-columns: 90px 1fr 1fr 1fr;
+  background: $bg-color-4;
+  max-width: 1200px;
+  color: $text-color-4;
+  border-radius: 8px 8px 0 0;
+  justify-items: center;
+}
+
