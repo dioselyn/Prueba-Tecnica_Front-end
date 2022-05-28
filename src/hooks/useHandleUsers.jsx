@@ -52,6 +52,7 @@ function useHandleUsers() {
   return {
     users,
     error,
+    setError,
     login,
     followers,
     searchValue,

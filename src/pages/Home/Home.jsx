@@ -7,10 +7,17 @@ import "../Home/Home.scss";
 import "../../index.scss";
 import { BarGraphic } from "../../components/BarGraphic/BarGraphic";
 import { useRoutes } from "react-router-dom";
+import { EmptySearchResults } from "../../components/EmptySearchResults/EmptySearchResults";
 
 function Home() {
-  const { error, login, followers, setSearchValue, filteredUsers } =
-    useHandleUsers();
+  const {
+    error,
+    login,
+    followers,
+    searchValue,
+    setSearchValue,
+    filteredUsers,
+  } = useHandleUsers();
 
   return (
     <React.Fragment>
@@ -19,7 +26,13 @@ function Home() {
       </header>
       <main>
         <div className="home__table">
-          <Table>
+          <Table
+            searchText={searchValue}
+            searchedUsers={filteredUsers}
+            onEmptySearchResults={(searchText) => (
+              <EmptySearchResults searchText={searchText} />
+            )}
+          >
             {filteredUsers.map((user, index) => (
               <TableBody key={index} user={user} index={index} />
             ))}

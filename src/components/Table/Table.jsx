@@ -1,7 +1,7 @@
 import React from "react";
 import "./Table.scss";
 
-function Table({ children }) {
+function Table({ children, searchedUsers, searchText, onEmptySearchResults }) {
   const titles = ["#", "Id", "Username", "Link"];
   return (
     <div className="table__container">
@@ -10,7 +10,11 @@ function Table({ children }) {
           <h4 key={index}>{title}</h4>
         ))}
       </div>
-      <div>{children}</div>
+
+      <div>
+        {!searchedUsers.length && onEmptySearchResults(searchText)}
+        {children}
+      </div>
     </div>
   );
 }
