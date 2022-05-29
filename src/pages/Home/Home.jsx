@@ -9,9 +9,11 @@ import { BarGraphic } from "../../components/BarGraphic/BarGraphic";
 import { useRoutes } from "react-router-dom";
 import { EmptySearchResults } from "../../components/EmptySearchResults/EmptySearchResults";
 import { Error } from "../../components/Error/Error";
+import { Loading } from "../../components/Loading/Loading";
 
 function Home() {
   const {
+    loading,
     error,
     login,
     followers,
@@ -28,6 +30,8 @@ function Home() {
       <main>
         <div className="home__table">
           <Table
+            loading={loading}
+            onLoading={() => <Loading />}
             error={error}
             onError={() => <Error />}
             searchText={searchValue}

@@ -8,6 +8,8 @@ function Table({
   onEmptySearchResults,
   error,
   onError,
+  loading,
+  onLoading,
 }) {
   const titles = ["#", "Id", "Username", "Link"];
   return (
@@ -19,8 +21,9 @@ function Table({
       </div>
 
       <div>
-        {!searchedUsers.length && onEmptySearchResults(searchText)}
+        {!loading && !searchedUsers.length && onEmptySearchResults(searchText)}
         {error && onError()}
+        {loading && onLoading()}
         {children}
       </div>
     </div>

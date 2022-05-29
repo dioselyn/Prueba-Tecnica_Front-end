@@ -4,6 +4,7 @@ import axios from "axios";
 
 function useHandleUsers() {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [login, setLogin] = React.useState([]);
@@ -35,6 +36,7 @@ function useHandleUsers() {
       setUsers(newResult);
       setLogin(arrLogin);
       setFollowers(arrFollowers);
+      setLoading(false);
     } catch (error) {
       setError(error);
     }
@@ -51,6 +53,7 @@ function useHandleUsers() {
 
   return {
     users,
+    loading,
     error,
     setError,
     login,
