@@ -12,7 +12,7 @@ import {
   Legend,
 } from "chart.js";
 
-function BarGraphic({ login, followers }) {
+function BarGraphic({ login, followers, error, onError }) {
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -44,6 +44,7 @@ function BarGraphic({ login, followers }) {
 
   return (
     <div className="bar__container">
+      {error && onError()}
       <Bar data={data} options={options} />
     </div>
   );

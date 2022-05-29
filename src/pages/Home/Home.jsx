@@ -8,6 +8,7 @@ import "../../index.scss";
 import { BarGraphic } from "../../components/BarGraphic/BarGraphic";
 import { useRoutes } from "react-router-dom";
 import { EmptySearchResults } from "../../components/EmptySearchResults/EmptySearchResults";
+import { Error } from "../../components/Error/Error";
 
 function Home() {
   const {
@@ -27,6 +28,8 @@ function Home() {
       <main>
         <div className="home__table">
           <Table
+            error={error}
+            onError={() => <Error />}
             searchText={searchValue}
             searchedUsers={filteredUsers}
             onEmptySearchResults={(searchText) => (
@@ -39,7 +42,12 @@ function Home() {
           </Table>
         </div>
         <div className="home__bar">
-          <BarGraphic login={login} followers={followers} />
+          <BarGraphic
+            error={error}
+            onError={() => <Error />}
+            login={login}
+            followers={followers}
+          />
         </div>
       </main>
     </React.Fragment>

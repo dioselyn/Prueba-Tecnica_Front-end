@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./UserCard.scss";
 
-function UserCard({ user }) {
+function UserCard({ user, error, onError }) {
   return (
     <div className="user__card">
+      {error && onError()}
       <div>
         <img src={user.avatar_url} className="user__card--img" />
       </div>

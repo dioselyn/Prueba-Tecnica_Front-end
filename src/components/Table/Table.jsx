@@ -1,7 +1,14 @@
 import React from "react";
 import "./Table.scss";
 
-function Table({ children, searchedUsers, searchText, onEmptySearchResults }) {
+function Table({
+  children,
+  searchedUsers,
+  searchText,
+  onEmptySearchResults,
+  error,
+  onError,
+}) {
   const titles = ["#", "Id", "Username", "Link"];
   return (
     <div className="table__container">
@@ -13,6 +20,7 @@ function Table({ children, searchedUsers, searchText, onEmptySearchResults }) {
 
       <div>
         {!searchedUsers.length && onEmptySearchResults(searchText)}
+        {error && onError()}
         {children}
       </div>
     </div>
