@@ -10,9 +10,18 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}></Route>
-      <Route path="/user/:username" element={<User />}></Route>
-      <Route path="*" element={<div>404</div>}></Route>
+      <Route
+        path={`${process.env.REACT_APP_API_URL}/`}
+        element={<App />}
+      ></Route>
+      <Route
+        path={`${process.env.REACT_APP_API_URL}/user/:username`}
+        element={<User />}
+      ></Route>
+      <Route
+        path={`${process.env.REACT_APP_API_URL}/*`}
+        element={<div>404</div>}
+      ></Route>
     </Routes>
   </BrowserRouter>
 );

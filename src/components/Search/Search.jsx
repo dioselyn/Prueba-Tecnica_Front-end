@@ -5,7 +5,6 @@ import "./Search.scss";
 function Search({ setSearchValue }) {
   const [input, setInput] = useState("");
   const [isAlertActive, setIsAlertActive] = useState(false);
-  //const []
 
   const onClickSearch = () => {
     (input && input.length < 4) || input === "iseijasunow"
